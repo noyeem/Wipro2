@@ -1,0 +1,17 @@
+﻿@model List<Wipro.Lib.Link>
+@using Wipro.Web.ViewComponents
+
+@if (@Model != null)
+{
+    @foreach (var link in Model)
+    {
+        @if (link != null && !string.IsNullOrEmpty(link.Href))
+        {
+            <li>
+                Link: @link.Href  <br />
+                File Name: @link.FileName   
+            </li>
+        }
+    }
+}
+

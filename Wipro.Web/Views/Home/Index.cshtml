@@ -1,0 +1,31 @@
+﻿@model Wipro.Web.Models.CrawlWiproFormModel
+
+@{
+    ViewData["Title"] = "Wipro Crawler";
+}
+
+<h2>Sync Call</h2>
+<div class="row" style="margin-top: 50px; padding: 20px">
+    <form asp-action="CrawlWipro" asp-controller="Home">
+        <label asp-for="url"></label>
+        <input asp-for="url" placeholder="https://wiprodigital.com" value="https://wiprodigital.com" />
+
+        <label asp-for="depth"></label>
+        <input asp-for="depth" placeholder="3" value="3" />
+        @Html.AntiForgeryToken()
+        <input type="submit" />
+    </form>
+</div>
+
+<h2>Async Call</h2>
+<div class="row" style="margin-top: 50px; padding: 20px">
+    <form asp-action="CrawlWiproAsync" asp-controller="Home">
+        <label asp-for="url"></label>
+        <input asp-for="url" placeholder="https://wiprodigital.com" value="https://wiprodigital.com" />
+
+        <label asp-for="depth"></label>
+        <input asp-for="depth" placeholder="3" value="3" />
+        @Html.AntiForgeryToken()
+        <input type="submit" />
+    </form>
+</div>

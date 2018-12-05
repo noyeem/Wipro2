@@ -1,0 +1,29 @@
+﻿@model List<Wipro.Lib.Link>
+@using Wipro.Web.ViewComponents
+
+@{
+    ViewData["Title"] = "CrawlWiproAsync";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Crawl Wipro Async</h2>
+
+
+<div class="row">
+    @if (@Model != null)
+    {
+        @foreach (var link in Model)
+        {
+            <div style="border: 1px solid grey; padding: 10px">
+                <h3>Page URL: @link.Href </h3>
+                <ol>
+                    @if (link != null && !string.IsNullOrEmpty(link.Href))
+                    {
+                        @await Component.InvokeAsync("DisplayLinks", new { url = link.Href, isRoot = false })
+                    }
+                </ol>
+            </div>
+        }
+    }
+</div>
+
